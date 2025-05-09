@@ -52,17 +52,19 @@ export const login = async (req, res) => {
             fullName: user.fullName 
 
         });
+        res.status(200).json({ message: "Logged in successfully" });
     } catch(err) {
         console.log("Error in login controller ", err.message);
         res.status(500).json({ message: "Internal server error." });
     }
 }
 
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
     try{
         res.cookie("jwt", "", {
             maxAge: 0
         })
+        res.status(200).json({ message: "Logged out successfully" });
     } catch(err) {
         res.status(500).json({ message: "Internal server error." });
     }
@@ -74,8 +76,8 @@ export const updateProfile = async (req, res) => {
         const userId = req.user._id;
 
         if(!profilePic) return res.status(400).json({ message: "Profile Pic is required." });
-        const upload = await cloudinary.uploader.upload(profilePic);
-        const updatedUser = await User.findByIdAndUpdate(userID, { profilePic: uploadResponse.secure_url }, { new: true })
+        const uploadResponse = await cloudinary.uploader.upload(profilePic);
+        const updatedUser = await User.findByIdAndUpdate(userId, { profilePic: uploadResponse.secure_url }, { new: true });
 
         res.status(200).json(updatedUser);
     }
