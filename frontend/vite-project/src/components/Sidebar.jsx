@@ -44,7 +44,7 @@ return (
         </div>
       </div>
 
-      <div className="overflow-y-auto w-full py-3">
+      <div className="overflow-y-auto w-full py-0">
         {filteredUsers.map((user) => (
           <button
             key={user._id}
