@@ -20,11 +20,12 @@ app.use(cors({
 }))
 
 if(process.env.NODE_ENV==="production") {
-    app.use(express.static(path.join(__dirname, "../frontend/vite-project/dist")));
+const frontendPath = path.join(__dirname, "../frontend/vite-project/dist");
+app.use(express.static(frontendPath));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend", "/vite-project", "/dist", "/index.html"));
-    })
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 }
 
 app.use("/api/auth", authRoutes);
