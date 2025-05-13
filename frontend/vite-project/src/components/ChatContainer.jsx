@@ -4,7 +4,7 @@ import { useAuthStore } from "../store/useAuthStore.js";
 import ChatHeader from "./skeletons/ChatHeader.jsx";
 import MessageInput from "./MessageInput.jsx";
 import MessageSkeleton from "./skeletons/MessageSkeleton.jsx"
-import { formatMessageTime } from "../lib/timeFormat.js";
+import { formatMessageTime } from "../lib/timeReadFormat.js";
 import { useRef } from "react";
 
 
