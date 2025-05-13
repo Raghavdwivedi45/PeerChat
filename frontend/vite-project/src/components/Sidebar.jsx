@@ -34,7 +34,7 @@ return (
           <label className="cursor-pointer flex items-center gap-2">
             <input
               type="checkbox"
-              checked={showOnlineOnly}
+              
               onChange={(e) => setShowOnlineOnly(e.target.checked)}
               className="checkbox checkbox-sm"
             />
