@@ -9,6 +9,8 @@ const Sidebar = () => {
     const {onlineUsers} = useAuthStore();
       const [showOnlineOnly, setShowOnlineOnly] = useState(false);
 
+    console.log("In SideBar");
+
     useEffect(() => {
         getUsers()
     }, [getUsers]);

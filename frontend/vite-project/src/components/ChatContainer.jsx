@@ -12,6 +12,7 @@ const ChatContainer = () => {
     const { messages, getMessages, isMessageLoading, selectedUser, subscribeToMessages,
             unsubscribeFromMessages } = useChatStore();
     const { authUser } = useAuthStore();
+    console.log("In ChatContainer");
     
     useEffect(() => {
       getMessages(selectedUser._id);
